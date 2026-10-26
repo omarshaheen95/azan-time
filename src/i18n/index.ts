@@ -13,7 +13,7 @@ const en = {
   nowTime: 'Time now',
   inTime: (d: string) => `in ${d}`,
   minutes: (n: number) => (n === 1 ? '1 minute' : `${n} minutes`),
-  nav: { home: 'Home', today: 'Today', settings: 'Settings', about: 'About' },
+  nav: { home: 'Home', today: 'Today', adhkar: 'Adhkar', settings: 'Settings', about: 'About' },
   qibla: 'Qibla',
   qiblaFrom: (deg: string, dir: string) => `${deg}° from north · ${dir}`,
   octants: ['North', 'North-east', 'East', 'South-east', 'South', 'South-west', 'West', 'North-west'],
@@ -89,6 +89,14 @@ const en = {
     auto: 'Check for updates once a day (contacts GitHub)',
     toastTitle: (v: string) => `Azan Time ${v} is available`, toastBody: 'Open the app to install it',
   },
+  h: {
+    adhkar: 'Adhkar', until: 'until prayer', now: 'Now', changePlace: 'Change location',
+    tagline: ['Same sky', 'Same Creator', 'Different places', 'One Ummah'],
+    prev: 'Previous', next: 'Next', quran: 'Quran', sunnah: 'Sunnah', count: 'Count', reset: 'Reset',
+    showTranslation: 'Show translations of adhkar',
+    phases: ['New moon', 'Waxing crescent', 'First quarter', 'Waxing gibbous', 'Full moon', 'Waning gibbous', 'Last quarter', 'Waning crescent'],
+    lit: (p: string) => `${p}% lit`, inTime: (d: string) => `in ${d}`, ago: (d: string) => `${d} ago`,
+  },
 };
 
 export type Strings = typeof en;
@@ -103,7 +111,7 @@ const ar: Strings = {
   nowTime: 'الوقت الآن',
   inTime: (d) => `بعد ${d}`,
   minutes: (n) => (n === 1 ? 'دقيقة واحدة' : n === 2 ? 'دقيقتين' : n <= 10 ? `${n} دقائق` : `${n} دقيقة`),
-  nav: { home: 'الرئيسية', today: 'مواقيت اليوم', settings: 'الإعدادات', about: 'حول' },
+  nav: { home: 'الرئيسية', today: 'مواقيت اليوم', adhkar: 'الأذكار', settings: 'الإعدادات', about: 'حول' },
   qibla: 'القبلة',
   qiblaFrom: (deg, dir) => `${deg}° من الشمال · ${dir}`,
   octants: ['شمال', 'شمال شرق', 'شرق', 'جنوب شرق', 'جنوب', 'جنوب غرب', 'غرب', 'شمال غرب'],
@@ -178,6 +186,14 @@ const ar: Strings = {
     auto: 'التحقق من التحديثات مرة يوميًا (يتصل بـ GitHub)',
     toastTitle: (v: string) => `وقت الأذان ${v} متاح`, toastBody: 'افتح التطبيق لتثبيته',
   },
+  h: {
+    adhkar: 'الأذكار', until: 'حتى الصلاة', now: 'الآن', changePlace: 'تغيير الموقع',
+    tagline: ['سماءٌ واحدة', 'خالقٌ واحد', 'أماكنُ شتّى', 'أمّةٌ واحدة'],
+    prev: 'السابق', next: 'التالي', quran: 'القرآن الكريم', sunnah: 'السنة النبوية', count: 'العدّ', reset: 'إعادة',
+    showTranslation: 'عرض ترجمة الأذكار',
+    phases: ['محاق', 'هلال متزايد', 'تربيع أول', 'أحدب متزايد', 'بدر', 'أحدب متناقص', 'تربيع أخير', 'هلال متناقص'],
+    lit: (p: string) => `مضاء ${p}٪`, inTime: (d: string) => `بعد ${d}`, ago: (d: string) => `منذ ${d}`,
+  },
 };
 
 const pt: Strings = {
@@ -190,7 +206,7 @@ const pt: Strings = {
   nowTime: 'Agora',
   inTime: (d) => `em ${d}`,
   minutes: (n) => (n === 1 ? '1 minuto' : `${n} minutos`),
-  nav: { home: 'Início', today: 'Hoje', settings: 'Configurações', about: 'Sobre' },
+  nav: { home: 'Início', today: 'Hoje', adhkar: 'Adhkar', settings: 'Configurações', about: 'Sobre' },
   qibla: 'Qibla',
   qiblaFrom: (deg, dir) => `${deg}° a partir do norte · ${dir}`,
   octants: ['Norte', 'Nordeste', 'Leste', 'Sudeste', 'Sul', 'Sudoeste', 'Oeste', 'Noroeste'],
@@ -265,6 +281,14 @@ const pt: Strings = {
     auto: 'Verificar atualizações uma vez por dia (conecta ao GitHub)',
     toastTitle: (v: string) => `Hora do Azan ${v} disponível`, toastBody: 'Abra o aplicativo para instalar',
   },
+  h: {
+    adhkar: 'Adhkar', until: 'até a oração', now: 'Agora', changePlace: 'Mudar localização',
+    tagline: ['Mesmo céu', 'Mesmo Criador', 'Lugares diferentes', 'Uma só Ummah'],
+    prev: 'Anterior', next: 'Próximo', quran: 'Alcorão', sunnah: 'Sunnah', count: 'Contagem', reset: 'Zerar',
+    showTranslation: 'Mostrar traduções dos adhkar',
+    phases: ['Lua nova', 'Crescente', 'Quarto crescente', 'Crescente gibosa', 'Lua cheia', 'Minguante gibosa', 'Quarto minguante', 'Minguante'],
+    lit: (p: string) => `${p}% iluminada`, inTime: (d: string) => `em ${d}`, ago: (d: string) => `há ${d}`,
+  },
 };
 
 const es: Strings = {
@@ -277,7 +301,7 @@ const es: Strings = {
   nowTime: 'Ahora',
   inTime: (d) => `en ${d}`,
   minutes: (n) => (n === 1 ? '1 minuto' : `${n} minutos`),
-  nav: { home: 'Inicio', today: 'Hoy', settings: 'Ajustes', about: 'Acerca de' },
+  nav: { home: 'Inicio', today: 'Hoy', adhkar: 'Adhkar', settings: 'Ajustes', about: 'Acerca de' },
   qibla: 'Qibla',
   qiblaFrom: (deg, dir) => `${deg}° desde el norte · ${dir}`,
   octants: ['Norte', 'Noreste', 'Este', 'Sureste', 'Sur', 'Suroeste', 'Oeste', 'Noroeste'],
@@ -351,6 +375,14 @@ const es: Strings = {
     install: 'Instalar y reiniciar', installing: 'Descargando e instalando…', error: 'No se pudo buscar actualizaciones',
     auto: 'Buscar actualizaciones una vez al día (se conecta a GitHub)',
     toastTitle: (v: string) => `Hora del Azán ${v} disponible`, toastBody: 'Abre la aplicación para instalarla',
+  },
+  h: {
+    adhkar: 'Adhkar', until: 'hasta la oración', now: 'Ahora', changePlace: 'Cambiar ubicación',
+    tagline: ['Mismo cielo', 'Mismo Creador', 'Lugares distintos', 'Una sola Ummah'],
+    prev: 'Anterior', next: 'Siguiente', quran: 'Corán', sunnah: 'Sunnah', count: 'Cuenta', reset: 'Reiniciar',
+    showTranslation: 'Mostrar traducciones de los adhkar',
+    phases: ['Luna nueva', 'Creciente', 'Cuarto creciente', 'Gibosa creciente', 'Luna llena', 'Gibosa menguante', 'Cuarto menguante', 'Menguante'],
+    lit: (p: string) => `${p}% iluminada`, inTime: (d: string) => `en ${d}`, ago: (d: string) => `hace ${d}`,
   },
 };
 

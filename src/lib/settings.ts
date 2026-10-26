@@ -54,6 +54,8 @@ export type Settings = {
   /** The user's own daily reminders: a time in the city's clock and the weekdays it repeats on (0 Sunday). */
   ownReminders: CustomReminder[];
 
+  /** Translations under the adhkar (Home and Adhkar). */
+  showTranslation: boolean;
   autostart: boolean;
   /** Look for a new version once a day (lib/updates.ts). */
   autoUpdate: boolean;
@@ -102,6 +104,7 @@ export function defaults(): Settings {
     iqamaMinutes: [...DEFAULT_IQAMA],
     iqamaSound: true,
     ownReminders: [],
+    showTranslation: true,
     autostart: true,
     autoUpdate: true,
     quietInPresentation: false,

@@ -40,3 +40,13 @@ export function inMinutes(t: Text, minutes: number) {
   if (minutes < 60) return t.d(t.minutes(minutes));
   return t.d(`${Math.floor(minutes / 60)}:${p2(minutes % 60)}`);
 }
+
+/** The clock split for Home: digits with seconds, and the AM/PM part (empty in 24-hour) drawn smaller. */
+export function clockParts(t: Text, s: Settings, tz: string, at: Date) {
+  const hour12 = s.clock === 'system' ? undefined : s.clock === '12';
+  const parts = new Intl.DateTimeFormat(locale(t), { timeZone: tz, hour: 'numeric', minute: '2-digit', second: '2-digit', hour12 })
+    .formatToParts(at);
+  const period = parts.filter((p) => p.type === 'dayPeriod').map((p) => p.value).join('');
+  const main = parts.filter((p) => p.type !== 'dayPeriod').map((p) => p.value).join('').trim();
+  return { main, period };
+}

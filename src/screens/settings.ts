@@ -152,6 +152,7 @@ function display({ s, t }: Ctx) {
     + opt('western', t.digitsWestern, s.digits === 'western')));
   rows += field(t.clock, select('clock', opt('system', t.clockSystem, s.clock === 'system') + opt('12', t.clock12, s.clock === '12')
     + opt('24', t.clock24, s.clock === '24')));
+  rows += field(t.h.showTranslation, toggle('showTranslation', s.showTranslation));
   return `<section class="card"><h2>${esc(t.sec.display)}</h2>${rows}</section>`;
 }
 

@@ -55,7 +55,10 @@ src/lib/places.ts      city search (places.json from tools/geonames.py) and per-
 src/lib/updates.ts     daily update check, install on the user's click
 src/lib/settings.ts    settings and defaults (saved as JSON in %APPDATA%\app.azantime.desktop)
 src/i18n/              ar / en / es / pt
-src/screens/           home, today (Qibla), settings, about
+src/screens/           home, today (Qibla), adhkar, settings, about
+src/ui/                sky (stars, real moon, skyline), dial, timeline, adhkar band
+src/lib/sky.ts         the dial's real progress between prayers; moon phase
+src/lib/adhkar.ts      the adhkar, checked against their sources (see the file's header)
 src-tauri/src/         scheduler (the background check), audio, notify (toasts), tray
 src-tauri/resources/   adhan recordings (Wikimedia Commons, see THIRD_PARTY.md) and spoken clips
 tools/announce.py      records the spoken clips with edge-tts

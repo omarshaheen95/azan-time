@@ -10,6 +10,14 @@
 
 - **GeoNames** (https://www.geonames.org), CC BY 4.0: the city search (`src/lib/places.json`, built by `tools/geonames.py`).
 
+## Adhkar (`src/lib/adhkar.ts`)
+
+- **Quran text:** Tanzil Quran Text (Simple), copyright © 2008-2026 Tanzil Project, used verbatim under its licence
+  (https://tanzil.net/docs/text_license): copied without change, with this credit. Fetched through api.alquran.cloud.
+- **English translation of the Quran:** Marmaduke Pickthall, *The Meaning of the Glorious Koran* (1930), public domain.
+- **Hadith wording and numbers:** Sahih al-Bukhari as published on sunnah.com (6307, 6384, 6403, 6406). Translations
+  of these short phrases into English, Spanish and Portuguese are the project's own.
+
 ## Fonts (SIL Open Font Licence 1.1)
 
 - Amiri (Khaled Hosny) · Alexandria (Mohamed Gaber) · Marcellus (Astigmatic)
