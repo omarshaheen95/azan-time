@@ -1,0 +1,49 @@
+# lang	clip	text	(Afnon's tools/announce-lines.txt, in the app's three languages)
+ar	before_fajr	اقترب موعد صلاة الفجر
+ar	before_dhuhr	اقترب موعد صلاة الظهر
+ar	before_jumuah	اقترب موعد صلاة الجمعة
+ar	before_asr	اقترب موعد صلاة العصر
+ar	before_maghrib	اقترب موعد صلاة المغرب
+ar	before_isha	اقترب موعد صلاة العشاء
+ar	now_fajr	حان الآن موعد صلاة الفجر
+ar	now_dhuhr	حان الآن موعد صلاة الظهر
+ar	now_jumuah	حان الآن موعد صلاة الجمعة
+ar	now_asr	حان الآن موعد صلاة العصر
+ar	now_maghrib	حان الآن موعد صلاة المغرب
+ar	now_isha	حان الآن موعد صلاة العشاء
+en	before_fajr	Fajr prayer is near.
+en	before_dhuhr	Dhuhr prayer is near.
+en	before_jumuah	Jumuah prayer is near.
+en	before_asr	Asr prayer is near.
+en	before_maghrib	Maghrib prayer is near.
+en	before_isha	Isha prayer is near.
+en	now_fajr	It is now time for Fajr prayer.
+en	now_dhuhr	It is now time for Dhuhr prayer.
+en	now_jumuah	It is now time for Jumuah prayer.
+en	now_asr	It is now time for Asr prayer.
+en	now_maghrib	It is now time for Maghrib prayer.
+en	now_isha	It is now time for Isha prayer.
+pt	before_fajr	Está chegando a hora da oração do Fajr.
+pt	before_dhuhr	Está chegando a hora da oração do Dhuhr.
+pt	before_jumuah	Está chegando a hora da oração de Jumu'ah.
+pt	before_asr	Está chegando a hora da oração do Asr.
+pt	before_maghrib	Está chegando a hora da oração do Maghrib.
+pt	before_isha	Está chegando a hora da oração do Isha.
+pt	now_fajr	Chegou a hora da oração do Fajr.
+pt	now_dhuhr	Chegou a hora da oração do Dhuhr.
+pt	now_jumuah	Chegou a hora da oração de Jumu'ah.
+pt	now_asr	Chegou a hora da oração do Asr.
+pt	now_maghrib	Chegou a hora da oração do Maghrib.
+pt	now_isha	Chegou a hora da oração do Isha.
+es	before_fajr	Se acerca la oración del Fáyer.
+es	before_dhuhr	Se acerca la oración del Zuhr.
+es	before_jumuah	Se acerca la oración del viernes, Yumúa.
+es	before_asr	Se acerca la oración del Asr.
+es	before_maghrib	Se acerca la oración del Mágrib.
+es	before_isha	Se acerca la oración del Isha.
+es	now_fajr	Es la hora de la oración del Fáyer.
+es	now_dhuhr	Es la hora de la oración del Zuhr.
+es	now_jumuah	Es la hora de la oración del viernes, Yumúa.
+es	now_asr	Es la hora de la oración del Asr.
+es	now_maghrib	Es la hora de la oración del Mágrib.
+es	now_isha	Es la hora de la oración del Isha.

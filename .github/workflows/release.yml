@@ -1,0 +1,64 @@
+# Builds the Windows installer and publishes a draft GitHub release with the updater's latest.json.
+# Push a tag (git tag v0.4.0 && git push origin v0.4.0), or run it by hand: the version comes from tauri.conf.json.
+# Secrets and signing: docs/RELEASING.md.
+name: Release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+
+      # The spoken reminder clips are recorded here, not kept in the repository (PLAN.md §6.4).
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install edge-tts
+          python tools/announce.py
+
+      # Authenticode signing, when a command is configured: tauri runs it on the program and the installer before it
+      # computes the updater signature. %1 is the file. Unset: the build is unsigned (SmartScreen warns).
+      - name: Signing config
+        if: ${{ vars.WINDOWS_SIGN_COMMAND != '' }}
+        shell: pwsh
+        run: |
+          @{ bundle = @{ windows = @{ signCommand = '${{ vars.WINDOWS_SIGN_COMMAND }}' } } } |
+            ConvertTo-Json -Depth 5 | Set-Content src-tauri/tauri.signing.conf.json
+          echo "TAURI_EXTRA_ARGS=--config src-tauri/tauri.signing.conf.json" >> $env:GITHUB_ENV
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Signs the updates (tauri signer); the public half is in tauri.conf.json.
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+          # For a signing command that needs them (Azure, a cloud HSM…): map secrets here.
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        with:
+          tagName: v__VERSION__
+          releaseName: Azan Time v__VERSION__
+          releaseBody: See the assets below to download and install this version.
+          releaseDraft: true
+          prerelease: false
+          includeUpdaterJson: true
+          args: ${{ env.TAURI_EXTRA_ARGS }}

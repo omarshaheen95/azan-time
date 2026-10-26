@@ -1,0 +1,27 @@
+# Checks every push and pull request: types, the prayer-time and reminder tests, and that the Rust side compiles.
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm test
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      # A build of the window first: tauri's build script embeds it.
+      - run: npm run build
+      - run: cargo check --locked
+        working-directory: src-tauri

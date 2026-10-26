@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Azan Time",
+  "version": "0.4.0",
+  "identifier": "app.azantime.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "create": false,
+        "title": "Azan Time",
+        "width": 1100,
+        "height": 720,
+        "minWidth": 860,
+        "minHeight": 600,
+        "visible": false,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "resources/adhan/": "adhan/",
+      "resources/announce/": "announce/"
+    },
+    "publisher": "Azan Time",
+    "shortDescription": "Prayer times, adhan and reminders",
+    "longDescription": "Prayer times, the adhan and reminders for Windows. Works offline and keeps running in the tray.",
+    "license": "MIT",
+    "windows": {
+      "nsis": {
+        "languages": [
+          "Arabic",
+          "English",
+          "Spanish",
+          "PortugueseBR"
+        ],
+        "displayLanguageSelector": true,
+        "installMode": "currentUser"
+      }
+    },
+    "createUpdaterArtifacts": true
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDM2OTYzNjlFQUU2MTZEQjYKUldTMmJXR3VuamFXTnZoQVNiWWpOdldCVmVIaS9BM0pJMGFxNjg1QVJoNWdMNkd2blpERUM5WjMK",
+      "endpoints": [
+        "https://github.com/omarshaheen95/azan-time/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

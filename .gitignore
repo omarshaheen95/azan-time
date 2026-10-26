@@ -1,0 +1,12 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+*.log
+installer/
+.test-run/
+# Machine-specific (this PC's short build folder; see README).
+src-tauri/.cargo/
+# Recorded by tools/announce.py (locally, and in the release workflow).
+src-tauri/resources/announce/*/
+src-tauri/tauri.signing.conf.json
